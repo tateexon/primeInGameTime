@@ -2,7 +2,7 @@
 
 (pkgs.mkShell.override { stdenv = pkgs.clangStdenv; }) {
   buildInputs = with pkgs; [
-    zlib # for numpy
+    zlib
     gmp
 
     go_1_20
@@ -10,7 +10,6 @@
     delve
     golangci-lint
     gotools
-    # make
 
   ];
 

@@ -6,7 +6,11 @@ main:
 	go run main.go ./test.gci
 
 test:
-	go test test.go
+	go test -v ./main_test.go
 
 build:
 	GOOS=linux GOARCH=amd64 go build -o primeIGT_linux_amd64
+	GOOS=windows GOARCH=amd64 go build -o primeIGT_win_amd64.exe
+
+lint:
+	golangci-lint --color=always run ./... -v

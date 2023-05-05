@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-func main() {
+func main2() {
 
 	if len(os.Args) < 2 {
 		fmt.Println("Usage: go run main.go <filename>")
