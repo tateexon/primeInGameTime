@@ -1,4 +1,5 @@
 package lib
+
 import (
 	"encoding/binary"
 	"fmt"
@@ -6,23 +7,23 @@ import (
 )
 
 func toHour(seconds float64) int {
-	return int(seconds/60/60)
+	return int(seconds / 60 / 60)
 }
 
 func toMinutes(seconds float64) int {
-	return int(seconds/60)%60
+	return int(seconds/60) % 60
 }
 
 func toSeconds(seconds float64) int {
-	return int(seconds)%60
+	return int(seconds) % 60
 }
 
 func fractionOfSecond(seconds float64) float64 {
-	return (seconds - float64(int(seconds)))*1000
+	return (seconds - float64(int(seconds))) * 1000
 }
 
 func PrintTime(time float64, fileNumber int) {
-	fmt.Printf("Save %d: %.2f seconds: %02d:%02d:%02d.%3.0f\n", fileNumber, time, toHour(time), toMinutes(time), toSeconds(time), fractionOfSecond(time))
+	fmt.Printf("File %d In Game Time\n%02d:%02d:%02d.%03.0f\n", fileNumber, toHour(time), toMinutes(time), toSeconds(time), fractionOfSecond(time))
 }
 
 func FindFromOffsets(data []byte, offset int) float64 {
